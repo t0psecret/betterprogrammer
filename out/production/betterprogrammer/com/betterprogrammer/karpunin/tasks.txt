@@ -1,0 +1,204 @@
+====================================================
+                TASK 1  level 2
+====================================================
+
+public class BetterProgrammerTask {
+
+    public static Object[] reverseArray(Object[] a) {
+        /*
+          Please implement this method to
+          return a new array where the order of elements has been reversed from the original
+          array.
+         */
+    }
+}
+
+public class BetterProgrammerTask {
+
+    public static Object[] reverseArray(Object[] a) {
+        /*
+          Please implement this method to
+          return a new array where the order of elements has been reversed from the original
+          array.
+         */
+         Object[] resultArray = new Object[a.length];
+                 for (int i = 0; i < a.length; i++) {
+                     resultArray[a.length - i - 1] = a[i];
+                 }
+                 return resultArray;
+    }
+}
+
+
+
+
+====================================================
+            TASK 2  level 3
+====================================================
+
+import java.util.*;
+
+
+public class BetterProgrammerTask {
+
+    public static Set<Object> getUniqueElements(Set<Object> a, Set<Object> b) {
+        /*
+          Please implement this method to
+          return a set of elements that can be found only in set a or set b,
+          but not in both Sets.
+          The method should not change the content of the parameters.
+         */
+    }
+}
+
+
+import java.util.*;
+
+
+public class BetterProgrammerTask {
+
+    public static Set<Object> getUniqueElements(Set<Object> a, Set<Object> b) {
+        /*
+          Please implement this method to
+          return a set of elements that can be found only in set a or set b,
+          but not in both Sets.
+          The method should not change the content of the parameters.
+         */
+        Set<Object> resultSet = new HashSet<Object>();
+        resultSet.addAll(getUniqueElementsFromSetA(a, b));
+        resultSet.addAll(getUniqueElementsFromSetA(b, a));
+        return resultSet;
+    }
+
+    private static Set<Object> getUniqueElementsFromSetA(Set<Object> a, Set<Object> b) {
+        Set<Object> resultSet = new HashSet<Object>();
+        for (Object o : a) {
+            if ( !b.contains(o) )
+                resultSet.add(o);
+        }
+        return resultSet;
+    }
+}
+
+
+
+====================================================
+            TASK 3 level 4
+====================================================
+
+import java.util.*;
+
+
+public class BetterProgrammerTask {
+
+    // Please do not change this interface
+    public static interface Node {
+        int getValue();
+        List<Node> getChildren();
+    }
+
+
+    public static int getLevelSum(Node root, int N) {
+        /*
+          Please implement this method to
+          traverse the tree and return the sum of the values (Node.getValue()) of all nodes
+          at the level N in the tree.
+          Node root is assumed to be at the level 1. All its children are level 2, etc.
+         */
+    }
+}
+
+
+
+
+import java.util.*;
+
+
+public class BetterProgrammerTask {
+
+    // Please do not change this interface
+    public static interface Node {
+        int getValue();
+        List<Node> getChildren();
+    }
+
+
+    public static int getLevelSum(Node root, int N) {
+        /*
+          Please implement this method to
+          traverse the tree and return the sum of the values (Node.getValue()) of all nodes
+          at the level N in the tree.
+          Node root is assumed to be at the level 1. All its children are level 2, etc.
+         */
+        int resultSum = 0;
+        if (N > 0 && root != null) {
+            resultSum = root.getValue();
+            for (Node childNode : root.getChildren()) {
+                resultSum += getLevelSum(childNode, N-1);
+            }
+        }
+        return resultSum;
+    }
+}
+
+
+
+
+
+====================================================
+            TASK 4 level 5
+====================================================
+
+import java.util.*;
+
+
+public class BetterProgrammerTask {
+
+    public static double getProbability(int Y, int X) {
+        /*
+          If you roll Y standard six-sided dice, what’s the probability that you get at least X 4s?
+          To calculate that you should divide the number of comibnations with X or more 4s
+          by the total number of possible combinations.
+         */
+    }
+}
+
+
+
+import java.util.*;
+
+
+public class BetterProgrammerTask {
+
+    public static double getProbability(int Y, int X) {
+        /*
+          If you roll Y standard six-sided dice, what’s the probability that you get at least X 4s?
+          To calculate that you should divide the number of comibnations with X or more 4s
+          by the total number of possible combinations.
+         */
+
+        int xCombinations = getCombinations(Y, X);
+        int totalCombinations = getTotalCombinations(Y, 6);
+        return 1.0 * xCombinations / totalCombinations;
+    }
+
+    private static int getTotalCombinations(int Y, int N) {
+        int n = N;
+        int k = Y;
+        return calculateFactorial(n+k-1) / calculateFactorial(k) / calculateFactorial(n-1);
+    }
+
+    private static int getCombinations(int Y, int X) {
+        int result = 0;
+        if (X <= Y) {
+            result = getTotalCombinations(Y - X, 6);
+            result += getCombinations(Y, X+1);
+        }
+        return result;
+    }
+
+    private static int calculateFactorial(int k) {
+        return k <= 1 ? 1 : k * calculateFactorial(k-1);
+    }
+}
+
