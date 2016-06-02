@@ -13,6 +13,7 @@ public class BetterProgrammerTask {
     }
 }
 
+//solution
 public class BetterProgrammerTask {
 
     public static Object[] reverseArray(Object[] a) {
@@ -52,6 +53,7 @@ public class BetterProgrammerTask {
 }
 
 
+//solution
 import java.util.*;
 
 
@@ -110,7 +112,7 @@ public class BetterProgrammerTask {
 
 
 
-
+//solution
 import java.util.*;
 
 
@@ -164,7 +166,7 @@ public class BetterProgrammerTask {
 }
 
 
-
+//solution
 import java.util.*;
 
 

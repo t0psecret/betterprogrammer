@@ -4,7 +4,7 @@ package com.betterprogrammer.karpunin;
 import java.util.*;
 
 
-public class BetterProgrammerTask {
+public class BetterProgrammerTask4 {
 
     public static double getProbability(int Y, int X) {
         /*

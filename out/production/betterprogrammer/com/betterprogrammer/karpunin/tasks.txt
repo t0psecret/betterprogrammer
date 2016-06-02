@@ -177,27 +177,26 @@ public class BetterProgrammerTask {
           by the total number of possible combinations.
          */
 
-        int xCombinations = getCombinations(Y, X);
-        int totalCombinations = getTotalCombinations(Y, 6);
+        long xCombinations = getCombinations(Y, X);
+        long totalCombinations = getTotalCombinations(Y, 6);
         return 1.0 * xCombinations / totalCombinations;
     }
 
-    private static int getTotalCombinations(int Y, int N) {
+    private static long getTotalCombinations(int Y, int N) {
         int n = N;
         int k = Y;
         return calculateFactorial(n+k-1) / calculateFactorial(k) / calculateFactorial(n-1);
     }
 
-    private static int getCombinations(int Y, int X) {
-        int result = 0;
+    private static long getCombinations(int Y, int X) {
+        long result = 0;
         if (X <= Y) {
             result = getTotalCombinations(Y - X, 6);
-            result += getCombinations(Y, X+1);
         }
         return result;
     }
 
-    private static int calculateFactorial(int k) {
+    private static long calculateFactorial(int k) {
         return k <= 1 ? 1 : k * calculateFactorial(k-1);
     }
 }

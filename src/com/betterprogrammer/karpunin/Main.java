@@ -8,103 +8,46 @@ public class Main {
 //	    ====================================================
 //      task 1 test
 //      ====================================================
+        Object[] array = {2, 67, 5, 6};
+        BetterProgrammerTask1.printArray(array);
+        array = BetterProgrammerTask1.reverseArray(array);
+        System.out.println("___________");
+        BetterProgrammerTask1.printArray(array);
 
-        //Object[] array = {new Integer(2), new Integer(67), new Integer(5), new Integer(6)};
-        //printArray(array);
-        //array = BetterProgrammerTask.reverseArray(array);
-        //printArray(array);
-
+        printDelimiter();
 //	    ====================================================
 //      task 2 test
 //      ====================================================
+        Set<Object> aSet = BetterProgrammerTask2.createRandomSet();
+        Set<Object> bSet =  BetterProgrammerTask2.createRandomSet();
+        BetterProgrammerTask2.printSet(aSet);
+        System.out.println("___________");
+        BetterProgrammerTask2.printSet(bSet);
+        System.out.println("___________");
+        aSet = BetterProgrammerTask2.getUniqueElements(aSet, bSet);
+        BetterProgrammerTask2.printSet(aSet);
 
-//        Set<Object> aSet = returnRandomSet();
-//        Set<Object> bSet = returnRandomSet();
-//        printSet(aSet);
-//        System.out.println("==============================");
-//        printSet(bSet);
-//        System.out.println("==============================");
-//        aSet = BetterProgrammerTask.getUniqueElements(aSet, bSet);
-//        printSet(aSet);
-
+        printDelimiter();
 //	    ====================================================
 //      task 3 test
 //      ====================================================
+        Task3NodeInt node = Task3NodeInt.createTree(1, 1);
+        System.out.println(node.toString());
+        System.out.println(BetterProgrammerTask3.getLevelSum(node, 2));
 
-//        NodeInt node = createTree(1, 1);
-//        System.out.println(node.toString());
-//        System.out.println("" + BetterProgrammerTask.getLevelSum(node, 2));
-
+        printDelimiter();
 //	    ====================================================
 //      task 4 test
 //      ====================================================
-
-        System.out.println(BetterProgrammerTask.getProbability(10, 3));
+        System.out.println(BetterProgrammerTask4.getProbability(10, 3));
 
     }
 
-    private static void printArray(Object[] pArray) {
-        for (Object value : pArray) {
-            System.out.println(value);
-        }
+    private static void printDelimiter(){
+        System.out.println("=============================================");
     }
 
-    private static Set<Object> returnRandomSet() {
-        Set<Object> resultSet = new HashSet<>();
-        Random random = new Random();
-        for (int i = 0; i < 10; i++) {
-            resultSet.add(new Integer(random.nextInt(10)));
-        }
-        return resultSet;
-    }
 
-    private static void printSet(Set<Object> pSet) {
-        for (Object o :pSet) {
-            System.out.println(o);
-        }
-    }
 
-    /*private static class NodeInt implements BetterProgrammerTask.Node {
 
-        private int value;
-        private ArrayList<BetterProgrammerTask.Node> children;
-
-        public NodeInt(int value) {
-            super();
-            this.value = value;
-            children = new ArrayList<BetterProgrammerTask.Node>();
-        }
-
-        public void addChild(NodeInt pNodeInt) {
-            children.add(pNodeInt);
-        }
-
-        @Override
-        public int getValue() {
-            return value;
-        }
-
-        @Override
-        public List<BetterProgrammerTask.Node> getChildren() {
-            return children;
-        }
-
-        @Override
-        public String toString() {
-            String resultString = getValue() + "|";
-            for (Object childNode :getChildren()) {
-                resultString += childNode.toString();
-            }
-            return resultString;
-        }
-    }
-
-    public static NodeInt createTree(int value, int N) {
-        NodeInt resultNode = new NodeInt(value);
-        if (N < 4) {
-            resultNode.addChild(createTree(N+1, N+1));
-            resultNode.addChild(createTree(N+1, N+1));
-        }
-        return resultNode;
-    }*/
 }
